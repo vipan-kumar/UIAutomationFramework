@@ -32,7 +32,7 @@ public class PostmanLandingPage {
 	
 	
 	//Page objects
-	private String link_Request_Name = "Request";
+	private String link_Request_Name = "File";
 	
 	
 	//Methods

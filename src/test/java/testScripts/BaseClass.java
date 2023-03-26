@@ -1,5 +1,7 @@
 package testScripts;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -140,9 +142,10 @@ public class BaseClass {
 		appLoginCaps.setCapability("app", appName);
 		
 		try {
-			appdriver = new WindowsDriver(new URL(winDriverURL),appLoginCaps);
-			appdriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			driver = new WindowsDriver(new URL(winDriverURL),appLoginCaps);
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 			
+			/*
 			//write code to add username , password, click connect and click oK btn in case of K8 application
 			
 			//Below caps are required to find out application window of all the opened window in the system
@@ -170,7 +173,7 @@ public class BaseClass {
 			rootCaps.setCapability("appTopLevelWindow", appHandleHex);
 			
 			driver = new WindowsDriver(new URL(winDriverURL),caps);
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS); */
 			
 			//Initialising other classes
 			wait = new WebDriverWait(driver,30);
@@ -182,8 +185,6 @@ public class BaseClass {
 		catch (Exception e) {
 			e.printStackTrace();
 			logger.info(ExceptionUtils.getStackTrace(e));
-			appdriver = null;
-			rootdriver = null;
 			driver = null;
 		}
 	}
@@ -191,14 +192,6 @@ public class BaseClass {
 	@AfterClass
 	public void tearDown() {
 		//to close application drivers
-		if(appdriver != null) {
-			appdriver.quit();
-			appdriver = null;
-		}
-		if(rootdriver != null) {
-			rootdriver.quit();
-			rootdriver = null;
-		}
 		if(driver != null) {
 			driver.quit();
 			driver = null;

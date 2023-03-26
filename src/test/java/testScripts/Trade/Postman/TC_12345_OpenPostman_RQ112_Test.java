@@ -8,6 +8,8 @@
  *********************************************************************************************/
 package testScripts.Trade.Postman;
 
+import org.testng.annotations.Test;
+import org.testng.Assert;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -24,7 +26,6 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import junit.framework.Assert;
 import pageObjects.MainHomePage;
 import pageObjects.Trade.Postman.PostmanLandingPage;
 import testScripts.BaseClass;
@@ -61,7 +62,7 @@ public class TC_12345_OpenPostman_RQ112_Test extends BaseClass{
 		catch(Exception e) {
 			System.out.println("In catch block of the main test method.......");
 			logger.info(ExceptionUtils.getStackTrace(e));
-			hardAssert.fail("TC 12345 failed....");
+			Assert.fail("TC 12345 failed....");
 		}
 		finally {
 			System.out.println("In finally block of the main test method.......");
@@ -74,7 +75,7 @@ public class TC_12345_OpenPostman_RQ112_Test extends BaseClass{
 		boolean pgLoadFlag = plp.verifyPostmanPgLoad();
 		if(!pgLoadFlag) {
 			logger.info("Step 1 failed...Could not open postman");
-			hardAssert.fail("Step 1 failed...Could not open postman");
+			Assert.fail("Step 1 failed...Could not open postman");
 		}
 		else {
 			logger.info("Step 1 - Postman opened successfully");
