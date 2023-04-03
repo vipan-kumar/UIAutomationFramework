@@ -23,13 +23,13 @@ public class ReadConfig {
 	}
 	
 	//Define a method for each property written in config.properties file
-	public String getAppName()
+	public String getBrowser()
 	{
-		return prop.getProperty("appname");
+		return prop.getProperty("browser");
 	}
-	public String getAppPath()
+	public String getAppURL()
 	{
-		return prop.getProperty("apppath");
+		return prop.getProperty("appurl");
 	}
 	public String getUsername()
 	{

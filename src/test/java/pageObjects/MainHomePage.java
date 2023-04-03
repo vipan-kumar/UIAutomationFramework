@@ -4,39 +4,18 @@
  * LAST UPDATED ON     : 05-Mar-2023
  * LAST UPDATED BY     : Vipan
  * REASON OF THE UPDATE:
- * DESCRIPTION         : Page object class for Main Home Page, ie the first page after
- * 						opening the application 
+ * DESCRIPTION         : Page object class for Google search main page
  *********************************************************************************************/
 
 package pageObjects;
 
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.FindBy;
 
-import io.appium.java_client.windows.WindowsDriver;
-import utils.ActionsImplementation;
-import utils.ReusableUtilities;
+import elements.Test;
+import elements.Text;
 
 public class MainHomePage {
 	
-	WindowsDriver driver = null;
-	WebDriverWait wait = null;
-	ActionsImplementation actions = null;
-	
-	public MainHomePage(WindowsDriver driver,WebDriverWait wait) {
-		this.driver = driver;
-		this.wait = wait;
-		actions = new ActionsImplementation(driver,wait);
-	}
-	
-	
-	//Page objects
-	protected String btn_Submit_Id = "";
-	protected String txt_Username_Id = "";
-	protected String ddl_Role_Id = "";
-	protected String menu_Main_Id = " ";
-	
-	//Methods
-	public void enterUsername(String username) throws Exception{
-		
-	}
+	@FindBy(name = "q")
+	public Text searchBar = new Test("searchBar");
 }
